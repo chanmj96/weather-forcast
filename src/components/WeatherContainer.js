@@ -1,4 +1,7 @@
 import React from 'react';
+import Media from 'react-media';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 class WeatherContainer extends React.Component {
 
@@ -32,7 +35,7 @@ class WeatherContainer extends React.Component {
 		return (
 			<div className="card weather-card">
 				<div className="day-of-week">
-					{i == 0 ? 'Today' : this.getDayOfWeek(daily.dt)}
+					{i === 0 ? 'Today' : this.getDayOfWeek(daily.dt)}
 				</div>
 
 				<div className="day-temperature">
@@ -40,7 +43,7 @@ class WeatherContainer extends React.Component {
 				</div>
 
 				<div className="weather-icon">
-					<img src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} />
+					<img src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} alt='' />
 				</div>
 
 				<div className="weather-description">{daily.weather[0].description}</div>
@@ -58,13 +61,48 @@ class WeatherContainer extends React.Component {
 	render() {
 		return (
 			<div className="weather-container">
-				{this.state.daily.map((daily, i) => {
-					return (
-						<div key={i}>
-							{this.getWeatherCard(daily, i)}
-						</div>
-					);
-				})}
+				<Media queries={{
+					small: "(max-width: 599px)",
+					medium: "(min-width: 600px) and (max-width: 1199px)",
+					large: "(min-width: 1200px)"
+				}}>
+					{matches => (
+						<React.Fragment>
+							{matches.large &&
+								this.state.daily.map((daily, i) => {
+									return (
+										<div key={i}>
+											{this.getWeatherCard(daily, i)}
+										</div>
+									);
+								})}
+							{(matches.medium || matches.small) &&
+								<CarouselProvider
+									naturalSlideWidth={100}
+									naturalSlideHeight={125}
+									totalSlides={this.state.daily.length}
+								>
+									<Slider>
+										{this.state.daily.map((daily, i) => {
+											return (
+												<Slide key={i}>
+													{this.getWeatherCard(daily, i)}
+												</Slide>
+											);
+										})}
+									</Slider>
+
+									{this.state.daily.length > 1 &&
+									<div>
+										<ButtonBack className="btn">Back</ButtonBack>
+										<ButtonNext className="btn">Next</ButtonNext>
+									</div>
+									}
+								</CarouselProvider>
+							}
+						</React.Fragment>
+						)}
+				</Media>
 			</div>
 		);
 	}
