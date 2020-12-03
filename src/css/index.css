@@ -40,35 +40,46 @@ p, .subtitle {
   margin: 5rem 0;
 }
 
-.current-location-button {
+.btn {
   background: transparent;
-  border: 1px solid rgb(255, 147, 44);
   border-radius: 4px;
-  color: rgb(255, 147, 44);
   cursor: pointer;
   font: inherit;
   font-weight: 600;
   margin: 2rem 0;
   padding: 0.6rem 2rem;
-  -webkit-transition: background 200ms ease;
-  transition: background 200ms ease;
 }
 
-.current-location-button:focus {
-  outline: none;
+.clear-location-button {
+  border: 1px solid rgb(169,169,169);
+  color: rgb(169,169,169);
+}
+
+.clear-location-button:hover {
+  color: rgb(169,169,169);
+}
+
+.current-location-button {
+  margin-left: 1.5rem;
+  background: rgb(255, 147, 44);
+  color: white;
 }
 
 .current-location-button:hover {
-  background: rgb(255, 147, 44);
   color: white;
 }
 
 .location-search-input {
   border-radius: 4px;
+  padding: .5rem;
   width: 30rem;
 }
 
-.location-search-input:hover {
+.location-search-input:active {
+  border-radius: 4px;
+}
+
+.location-search-input:focus {
   border-radius: 4px;
 }
 

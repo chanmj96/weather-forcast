@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      address: '',
       location: {
         lat: 0,
         lng: 0
@@ -38,13 +39,17 @@ class App extends React.Component {
     return this.state.shouldUseCurrentLocation ? this.state.currentLng : this.state.location.lng;
   }
 
+  onClearLocationClicked() {
+    this.setState({ address: '' });
+  }
+
   onCurrentLocationClicked() {
     this.setState({
       shouldUseCurrentLocation: true
     });
   }
 
-  onLocationSelected (latLng) {
+  onLocationSelected(latLng) {
     this.setState({
       location: {
         lat: latLng.lat,
@@ -62,12 +67,18 @@ class App extends React.Component {
             <div className="col-lg-6 col-sm-12">
               <h2 className="title">Weather App</h2>
 
-              <button className="current-location-button" onClick={() => this.onCurrentLocationClicked()}>
+              <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
+                Clear
+              </button>
+
+              <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
                 Current Location
               </button>
 
               <LocationSearchInput
+                address={this.state.address}
                 onLocationSelected={(latLng) => this.onLocationSelected(latLng)}
+                updateAddress={(address) => this.setState({address: address})}
               />
             </div>
 
