@@ -77,17 +77,19 @@ class App extends React.Component {
       <div className="weather-app">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 col-sm-12">
+            <div className="col-xl-6 col-12">
               <div className="location-form-container">
                 <h2 className="title">Weather App</h2>
 
-                <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
-                  Clear
-                </button>
+                <div className="btn-container">
+                  <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
+                    Clear
+                  </button>
 
-                <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
-                  Current Location
-                </button>
+                  <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
+                    Current Location
+                  </button>
+                </div>
 
                 <LocationSearchInput
                   address={this.state.address}
@@ -97,7 +99,7 @@ class App extends React.Component {
               </div>
             </div>
 
-            <div className="col-lg-6 col-sm-12">
+            <div className="col-xl-6 col-12">
               <div className="map-container">
                 <MapContainer
                   address={this.state.address}
