@@ -16,13 +16,6 @@ html {
   font-size: 1rem;
 }
 
-.weather-app {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 5rem 0;
-}
-
 /* Content */
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +35,10 @@ p, .subtitle {
 }
 
 /* Components */
+
+.weather-app {
+  margin: 5rem 0;
+}
 
 .current-location-button {
   background: transparent;
@@ -68,11 +65,25 @@ p, .subtitle {
 
 .location-search-input {
   border-radius: 4px;
+  width: 30rem;
 }
 
-.map-container {
-  position: absolute;
-  top: 20rem;
-  left: 50%;
-  transform: translateX(calc(-50% - 25rem));
+.location-search-input:hover {
+  border-radius: 4px;
 }
+
+.autocomplete-dropdown-container {
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.suggestion-item {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.suggestion-item--hover {
+  background-color: rgba(255, 147, 44, 0.1);
+  cursor: pointer;
+}
+
