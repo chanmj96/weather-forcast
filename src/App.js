@@ -78,21 +78,23 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-sm-12">
-              <h2 className="title">Weather App</h2>
+              <div className="location-form-container">
+                <h2 className="title">Weather App</h2>
 
-              <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
-                Clear
-              </button>
+                <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
+                  Clear
+                </button>
 
-              <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
-                Current Location
-              </button>
+                <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
+                  Current Location
+                </button>
 
-              <LocationSearchInput
-                address={this.state.address}
-                onLocationSelected={(latLng) => this.onLocationSelected(latLng)}
-                updateAddress={(address) => this.setState({address: address})}
-              />
+                <LocationSearchInput
+                  address={this.state.address}
+                  onLocationSelected={(latLng) => this.onLocationSelected(latLng)}
+                  updateAddress={(address) => this.setState({address: address})}
+                />
+              </div>
             </div>
 
             <div className="col-lg-6 col-sm-12">

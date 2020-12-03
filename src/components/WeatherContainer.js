@@ -28,21 +28,22 @@ class WeatherContainer extends React.Component {
 		return dateObject.toLocaleString("en-US", {weekday: "long"});
 	}
 
-	getWeatherCard(daily) {
+	getWeatherCard(daily, i) {
 		return (
-			<div className="weather-card">
-				<div>
-					{this.getDayOfWeek(daily.dt)}
+			<div className="card weather-card">
+				<div className="day-of-week">
+					{i == 0 ? 'Today' : this.getDayOfWeek(daily.dt)}
 				</div>
 
-				<div>
-					{daily.temp.min.toFixed(0) + ' / ' + daily.temp.max.toFixed(0)}
+				<div className="day-temperature">
+					<span className="temp-max">{daily.temp.max.toFixed(0)}</span> / <span className="temp-min">{daily.temp.min.toFixed(0)}</span>
 				</div>
 
 				<div className="weather-icon">
-					<img src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} /><span>{daily.weather[0].description}</span>
+					<img src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} />
 				</div>
 
+				<div className="weather-description">{daily.weather[0].description}</div>
 			</div>
 		);
 	}
@@ -60,7 +61,7 @@ class WeatherContainer extends React.Component {
 				{this.state.daily.map((daily, i) => {
 					return (
 						<div key={i}>
-							{this.getWeatherCard(daily)}
+							{this.getWeatherCard(daily, i)}
 						</div>
 					);
 				})}
