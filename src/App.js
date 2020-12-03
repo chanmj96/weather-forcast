@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationSearchInput from './components/LocationSearchInput';
 import MapContainer from './components/MapContainer';
+import WeatherContainer from './components/WeatherContainer';
 
 class App extends React.Component {
 
@@ -17,6 +18,8 @@ class App extends React.Component {
       showMarker: false,
       shouldUseCurrentLocation: true
     };
+
+    this.weatherContainerRef = React.createRef();
   }
 
   componentDidMount() {
@@ -42,6 +45,8 @@ class App extends React.Component {
 
   onClearLocationClicked() {
     this.setState({ address: '' });
+
+    this.weatherContainerRef.current.clearLocationForecast();
   }
 
   onCurrentLocationClicked() {
@@ -50,6 +55,8 @@ class App extends React.Component {
       showMarker: true,
       shouldUseCurrentLocation: true
     });
+
+    this.weatherContainerRef.current.updateLocationForecast(this.state.currentLat, this.state.currentLng);
   }
 
   onLocationSelected(latLng) {
@@ -61,6 +68,8 @@ class App extends React.Component {
       showMarker: true,
       shouldUseCurrentLocation: false
     });
+
+    this.weatherContainerRef.current.updateLocationForecast(latLng.lat, latLng.lng);
   }
 
   render() {
@@ -101,6 +110,12 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+
+        <WeatherContainer
+          lat={this.getLatitude()}
+          lng={this.getLongitude()}
+          ref={this.weatherContainerRef}
+        />
       </div>
     );
   }

@@ -86,6 +86,7 @@ p, .subtitle {
 .autocomplete-dropdown-container {
   border: 2px solid black;
   border-radius: 4px;
+  position: absolute;
 }
 
 .suggestion-item {
@@ -98,3 +99,25 @@ p, .subtitle {
   cursor: pointer;
 }
 
+.map-container {
+  margin-top: -2.5rem;
+}
+
+.weather-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16rem;
+}
+
+.weather-card {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.weather-icon {
+  margin-left: -1rem;
+}
