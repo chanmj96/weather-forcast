@@ -1,0 +1,22 @@
+.autocomplete-dropdown-container {
+	border: 2px solid $black;
+	border-radius: $border-radius-sm;
+	position: absolute;
+}
+
+.location-search-input {
+	border: 2px solid $black;
+	border-radius: $border-radius-sm;
+	padding: .5rem;
+	width: 30rem;
+}
+
+.suggestion-item {
+	background-color: white;
+	cursor: pointer;
+}
+
+.suggestion-item--hover {
+	background-color: $secondary-light;
+	cursor: pointer;
+}
