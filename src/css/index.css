@@ -17,8 +17,9 @@ html {
 }
 
 .weather-app {
+  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   margin: 5rem 0;
 }
 
@@ -38,4 +39,33 @@ h1, h2, h3, h4, h5, h6 {
 
 p, .subtitle {
   font-size: 1.5rem;
+}
+
+/* Components */
+
+.current-location-button {
+  background: transparent;
+  border: 1px solid rgb(255, 147, 44);
+  border-radius: 4px;
+  color: rgb(255, 147, 44);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  margin: 2rem 0;
+  padding: 0.6rem 2rem;
+  -webkit-transition: background 200ms ease;
+  transition: background 200ms ease;
+}
+
+.current-location-button:focus {
+  outline: none;
+}
+
+.current-location-button:hover {
+  background: rgb(255, 147, 44);
+  color: white;
+}
+
+.location-search-input {
+  border-radius: 4px;
 }
