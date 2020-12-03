@@ -14,6 +14,7 @@ class App extends React.Component {
       },
       currentLat: 0,
       currentLng: 0,
+      showMarker: false,
       shouldUseCurrentLocation: true
     };
   }
@@ -45,6 +46,8 @@ class App extends React.Component {
 
   onCurrentLocationClicked() {
     this.setState({
+      address: 'LatLng: (' + this.state.currentLat.toFixed(5) + ', ' + this.state.currentLng.toFixed(5) + ')',
+      showMarker: true,
       shouldUseCurrentLocation: true
     });
   }
@@ -55,6 +58,7 @@ class App extends React.Component {
         lat: latLng.lat,
         lng: latLng.lng,
       },
+      showMarker: true,
       shouldUseCurrentLocation: false
     });
   }
@@ -85,9 +89,11 @@ class App extends React.Component {
             <div className="col-lg-6 col-sm-12">
               <div className="map-container">
                 <MapContainer
+                  address={this.state.address}
                   location={this.state.location}
                   mapLatitude={this.getLatitude()}
                   mapLongitude={this.getLongitude()}
+                  showMarker={this.state.showMarker}
                   shouldUseCurrentLocation={this.state.shouldUseCurrentLocation}
                   zoomLevel={14}
                 />
