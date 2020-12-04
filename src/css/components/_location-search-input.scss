@@ -2,9 +2,16 @@
 	border: 2px solid $black;
 	border-radius: $border-radius-sm;
 	position: absolute;
+	width: inherit;
 	z-index: 9999;
 }
 
+.location-search-container {
+	@include media-breakpoint-down(xs) {
+		display: flex;
+		justify-content: center;
+	}
+}
 .location-search-input {
 	border: 2px solid $black;
 	border-radius: $border-radius-sm;
@@ -13,10 +20,6 @@
 
 	@include media-breakpoint-down(sm) {
 		width: 20rem;
-	}
-
-	@include media-breakpoint-down(xs) {
-		width: 100%;
 	}
 }
 

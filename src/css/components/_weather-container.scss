@@ -19,16 +19,35 @@
 	color: $black;
 	display: flex;
 	flex-direction: column;
-	height: 232px;
+	height: 100%;
 	margin: 0 1rem;
 	padding: 1rem;
 	text-align: center;
+
+	@include media-breakpoint-down(lg) {
+		height: 232px;
+	}
 }
 
 .weather-container {
 	display: flex;
 	justify-content: center;
 	margin-top: 15rem;
+
+	@media (max-width: 1544px) and (min-width: 1200px) {
+		justify-content: flex-start;
+		overflow: auto;
+
+		> div {
+			&:first-child .weather-card {
+				margin-left: 0;
+			}
+
+			&:last-child .weather-card {
+				margin-right: 0;
+			}
+		}
+	}
 
 	@include media-breakpoint-down(lg) {
 		justify-content: flex-start;
@@ -45,8 +64,8 @@
 
 	@include media-breakpoint-down(xs) {
 		justify-content: center;
-		margin-left: 2rem;
-		margin-top: 16rem;
+		margin-left: 1rem;
+		margin-top: 17rem;
 	}
 }
 

@@ -93,7 +93,7 @@ class WeatherContainer extends React.Component {
 									</Slider>
 
 									{this.state.daily.length > 1 &&
-									<div className="d-flex">
+									<div className="d-flex mt-2">
 										<ButtonBack className="btn">Back</ButtonBack>
 										<ButtonNext className="btn">Next</ButtonNext>
 									</div>
