@@ -1,18 +1,13 @@
 import React from 'react';
 import { Map, Marker } from 'google-maps-react';
 
-const mapStyles = {
-	height: '27rem',
-	width: '36rem'
-};
-
 function MapContainer (props) {
 
 	return (
 		<Map
 			google={window.google}
 			zoom={14}
-			style={mapStyles}
+			className="map-display"
 			center={
 				{
 					lat: props.mapLatitude,

@@ -5,3 +5,24 @@
 		margin-top: 2rem;
 	}
 }
+
+.map-display > div {
+	height: 27rem;
+	width: 36rem;
+
+	@include media-breakpoint-down(md) {
+		height: 22.5rem;
+		width: 30rem;
+	}
+
+	@include media-breakpoint-down(sm) {
+		height: 15rem;
+		width: 20rem;
+	}
+
+	@include media-breakpoint-down(xs) {
+		height: 14rem;
+		margin: 0 auto;
+		width: 16rem;
+	}
+}

@@ -77,7 +77,7 @@ class App extends React.Component {
       <div className="weather-app">
         <div className="container">
           <div className="row">
-            <div className="col-xl-6 col-12">
+            <div className="col-xl-6 col-sm-8 col-12">
               <div className="location-form-container">
                 <h2 className="title">Weather App</h2>
 
@@ -87,7 +87,7 @@ class App extends React.Component {
                   </button>
 
                   <button className="btn current-location-button" onClick={() => this.onCurrentLocationClicked()}>
-                    Current Location
+                    <span>Current Location</span>
                   </button>
                 </div>
 
@@ -99,7 +99,7 @@ class App extends React.Component {
               </div>
             </div>
 
-            <div className="col-xl-6 col-12">
+            <div className="col-xl-6 col-sm-8 col-12">
               <div className="map-container">
                 <MapContainer
                   address={this.state.address}
@@ -112,14 +112,16 @@ class App extends React.Component {
                 />
               </div>
             </div>
+
+            <div className="col-xl-12 col-sm-4 col-12">
+              <WeatherContainer
+                lat={this.getLatitude()}
+                lng={this.getLongitude()}
+                ref={this.weatherContainerRef}
+              />
+            </div>
           </div>
         </div>
-
-        <WeatherContainer
-          lat={this.getLatitude()}
-          lng={this.getLongitude()}
-          ref={this.weatherContainerRef}
-        />
       </div>
     );
   }

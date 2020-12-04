@@ -10,6 +10,14 @@
 	border-radius: $border-radius-sm;
 	padding: .5rem;
 	width: 30rem;
+
+	@include media-breakpoint-down(sm) {
+		width: 20rem;
+	}
+
+	@include media-breakpoint-down(xs) {
+		width: 100%;
+	}
 }
 
 .suggestion-item {

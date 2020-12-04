@@ -5,7 +5,7 @@
 @import 'partials/button';
 @import 'partials/card';
 
-@import 'components/location-form';
+@import 'components/form-buttons';
 @import 'components/location-search-input';
 @import 'components/map-container';
 @import 'components/weather-container';
@@ -36,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .title {
 	color: $black;
+
+	@include media-breakpoint-down(xs) {
+		text-align: center;
+	}
 }
 
 p, .subtitle {
@@ -47,5 +51,10 @@ p, .subtitle {
 }
 
 .weather-app {
-	margin: 3rem 0 1.5rem 0;
+	margin: 6rem 0 1.5rem 0;
+
+	@include media-breakpoint-down(xs) {
+		margin-top: 1.5rem;
+	}
+
 }

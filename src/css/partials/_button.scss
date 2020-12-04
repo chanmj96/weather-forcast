@@ -1,12 +1,24 @@
 .btn {
+	display: flex;
 	background: transparent;
 	border-radius: $border-radius-sm;
 	cursor: pointer;
+	flex-wrap: wrap;
 	font: inherit;
 	font-weight: 600;
 	padding: 0.6rem 2rem;
 }
 
 .btn-container {
+	align-items: center;
+	display: flex;
 	margin: 2rem 0;
+
+	.btn:first-child {
+		margin-right: 1.5rem;
+	}
+
+	@include media-breakpoint-down(xs) {
+		justify-content: center;
+	}
 }

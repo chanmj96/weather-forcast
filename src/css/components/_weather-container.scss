@@ -28,10 +28,25 @@
 .weather-container {
 	display: flex;
 	justify-content: center;
-	margin-top: 13rem;
+	margin-top: 15rem;
 
 	@include media-breakpoint-down(lg) {
-		margin-top: 30rem;
+		justify-content: flex-start;
+		margin-top: -7.5rem;
+	}
+
+	@include media-breakpoint-down(md) {
+		margin-left: 1.5rem;
+	}
+
+	@media (max-width: 707px) {
+		margin-left: -1.5rem;
+	}
+
+	@include media-breakpoint-down(xs) {
+		justify-content: center;
+		margin-left: 2rem;
+		margin-top: 16rem;
 	}
 }
 
