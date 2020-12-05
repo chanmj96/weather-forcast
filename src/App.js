@@ -51,7 +51,7 @@ class App extends React.Component {
 
   onCurrentLocationClicked() {
     this.setState({
-      address: 'LatLng: (' + this.state.currentLat.toFixed(5) + ', ' + this.state.currentLng.toFixed(5) + ')',
+      address: 'Latitude: ' + this.state.currentLat.toFixed(5) + ', Longitude: ' + this.state.currentLng.toFixed(5),
       showMarker: true,
       shouldUseCurrentLocation: true
     });
@@ -96,6 +96,7 @@ class App extends React.Component {
                   onLocationSelected={(latLng) => this.onLocationSelected(latLng)}
                   updateAddress={(address) => this.setState({address: address})}
                 />
+                <div className="help-text">Enter an address to see the 7 day forcast at its location.</div>
               </div>
             </div>
 

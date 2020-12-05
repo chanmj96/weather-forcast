@@ -6,12 +6,26 @@
 	z-index: 9999;
 }
 
+.help-text {
+	color: $secondary;
+	font-weight: 400;
+	margin-top: .5rem;
+}
+
+.location-form-container {
+	@include media-breakpoint-down(xs) {
+		margin: 0 auto;
+		max-width: 18rem;
+	}
+}
+
 .location-search-container {
 	@include media-breakpoint-down(xs) {
 		display: flex;
 		justify-content: center;
 	}
 }
+
 .location-search-input {
 	border: 2px solid $black;
 	border-radius: $border-radius-sm;
@@ -19,7 +33,7 @@
 	width: 30rem;
 
 	@include media-breakpoint-down(sm) {
-		width: 20rem;
+		max-width: 20rem;
 	}
 }
 
