@@ -45,7 +45,7 @@ class WeatherContainer extends React.Component {
 				</div>
 
 				<div className="weather-icon">
-					<img src={`http://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} alt='' />
+					<img src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`} alt='' />
 				</div>
 
 				<div className="weather-description">{daily.weather[0].description}</div>
