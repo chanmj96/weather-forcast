@@ -14,6 +14,12 @@ function MapContainer (props) {
 					lng: props.mapLongitude
 				}
 			}
+			initialCenter={
+				{
+					lat: 37.4220656,
+					lng: -122.0840897
+				}
+			}
 		>
 			{props.showMarker &&
 				<Marker

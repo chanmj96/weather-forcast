@@ -22,10 +22,6 @@ class App extends React.Component {
     this.weatherContainerRef = React.createRef();
   }
 
-  componentDidMount() {
-    this.getCurrentCoords();
-  }
-
   getCurrentCoords() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.setState({
@@ -50,13 +46,25 @@ class App extends React.Component {
   }
 
   onCurrentLocationClicked() {
-    this.setState({
-      address: 'Latitude: ' + this.state.currentLat.toFixed(5) + ', Longitude: ' + this.state.currentLng.toFixed(5),
-      showMarker: true,
-      shouldUseCurrentLocation: true
-    });
+    if (this.state.currentLat === 0 && this.state.currentLng === 0) {
+      this.getCurrentCoords();
 
-    this.weatherContainerRef.current.updateLocationForecast(this.state.currentLat, this.state.currentLng);
+      navigator.geolocation.getCurrentPosition((position) => {
+        let currentLat = position.coords.latitude;
+        let currentLng = position.coords.longitude;
+
+        this.setState({
+          address: 'Latitude: ' + this.state.currentLat.toFixed(5) + ', Longitude: ' + this.state.currentLng.toFixed(5),
+          currentLat: currentLat,
+          currentLng: currentLng,
+          showMarker: true,
+          shouldUseCurrentLocation: true
+        });
+      });
+    }
+    else {
+      this.weatherContainerRef.current.updateLocationForecast(this.state.currentLat, this.state.currentLng);
+    }
   }
 
   onLocationSelected(latLng) {
