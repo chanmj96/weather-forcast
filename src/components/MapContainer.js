@@ -16,8 +16,8 @@ function MapContainer (props) {
 			}
 			initialCenter={
 				{
-					lat: 37.4220656,
-					lng: -122.0840897
+					lat: props.locationDefault.lat,
+					lng: props.locationDefault.lng
 				}
 			}
 		>
