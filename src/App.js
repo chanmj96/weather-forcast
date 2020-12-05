@@ -79,7 +79,7 @@ class App extends React.Component {
           <div className="row">
             <div className="col-xl-6 col-sm-8 col-12">
               <div className="location-form-container">
-                <h2 className="title">Weather App</h2>
+                <h2 className="title">Weather Forecast</h2>
 
                 <div className="btn-container">
                   <button className="btn clear-location-button" onClick={() => this.onClearLocationClicked()}>
