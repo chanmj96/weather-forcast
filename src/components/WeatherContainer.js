@@ -10,7 +10,9 @@ class WeatherContainer extends React.Component {
 
 		this.state = {
 			current: {},
-			daily: []
+			daily: [],
+			fadeLeft: false,
+			fadeRight: true
 		}
 	}
 
@@ -51,6 +53,22 @@ class WeatherContainer extends React.Component {
 		);
 	}
 
+	handleScroll(e) {
+		let scrollPosition = e.target.scrollLeft;
+
+		if (scrollPosition === 0) {
+			this.setState({fadeLeft: false, fadeRight: true});
+			return;
+		}
+
+		if (scrollPosition === 189) {
+			this.setState({fadeLeft: true, fadeRight: false});
+			return;
+		}
+
+		this.setState({fadeLeft: true, fadeRight: true});
+	}
+
 	updateLocationForecast(lat, lng) {
 		fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=minutely,hourly,alerts&units=imperial&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEY}`)
 			.then(response => response.json())
@@ -60,7 +78,7 @@ class WeatherContainer extends React.Component {
 
 	render() {
 		return (
-			<div className="weather-container">
+			<div className={`weather-container${this.state.fadeLeft ? " fade-left" : ""}${this.state.fadeRight ? " fade-right" : ""}`} onScroll={(e) => this.handleScroll(e)}>
 				<Media queries={{
 					small: "(max-width: 599px)",
 					medium: "(min-width: 600px) and (max-width: 1199px)",

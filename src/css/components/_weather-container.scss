@@ -47,6 +47,32 @@
 				margin-right: 0;
 			}
 		}
+
+		&.fade-left {
+			> div:before {
+				background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+				bottom: 0;
+				content: '';
+				pointer-events: none;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 2rem;
+			}
+		}
+
+		&.fade-right {
+			> div:after {
+				background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+				bottom: 0;
+				content: '';
+				pointer-events: none;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 2rem;
+			}
+		}
 	}
 
 	@include media-breakpoint-down(lg) {
