@@ -39,7 +39,7 @@ class App extends React.Component {
   handleLocationError(browserHasGeolocation) {
     this.setState({ errorMsg:
         browserHasGeolocation
-          ? "Error: The Geolocation service failed."
+          ? "Error: Geolocation service failed. Please ensure Location Services are enabled."
           : "Error: Your browser doesn't support geolocation.",
         currentLat: locationDefault.lat,
         currentLng: locationDefault.lng,
