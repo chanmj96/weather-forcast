@@ -45,6 +45,10 @@
 	width: 30rem;
 
 	@include media-breakpoint-down(sm) {
+		max-width: 20rem;
+	}
+
+	@include media-breakpoint-down(xs) {
 		max-width: 18rem;
 	}
 }
