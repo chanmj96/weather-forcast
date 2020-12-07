@@ -32,7 +32,7 @@ function LocationSearchInput(props) {
 							{loading && <div>Loading...</div>}
 							{suggestions.map((suggestion, i) => {
 								return (
-									<div key={i} className={suggestion.active ? 'suggestion-item--hover' : 'suggestion-item'} {...getSuggestionItemProps(suggestion)}>
+									<div key={i} className={suggestion.active ? 'suggestion-item suggestion-item--hover' : 'suggestion-item'} {...getSuggestionItemProps(suggestion)}>
 										<span>{suggestion.description}</span>
 									</div>
 								);

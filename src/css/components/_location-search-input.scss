@@ -56,9 +56,12 @@
 .suggestion-item {
 	background-color: white;
 	cursor: pointer;
-}
 
-.suggestion-item--hover {
-	background-color: $primary-light;
-	cursor: pointer;
+	&.suggestion-item--hover {
+		background-color: $primary-light;
+	}
+
+	&:not(:last-of-type) {
+		border-bottom: 1px solid $secondary-lighter;
+	}
 }
