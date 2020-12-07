@@ -1,6 +1,6 @@
 import React from 'react';
 import Media from 'react-media';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Dot, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 class WeatherContainer extends React.Component {
@@ -109,6 +109,16 @@ class WeatherContainer extends React.Component {
 											);
 										})}
 									</Slider>
+
+									<div className="weather-card-dot-group">
+										{this.state.daily.map((daily, i) => {
+											return (
+												<Dot slide={i} className="btn d-inline weather-card-dot">
+													<span aria-hidden="true">&middot;</span>
+												</Dot>
+											);
+										})}
+									</div>
 
 									{this.state.daily.length > 1 &&
 									<div className="d-flex mt-2">

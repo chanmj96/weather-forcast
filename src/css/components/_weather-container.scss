@@ -29,6 +29,14 @@
 	}
 }
 
+.weather-card-dot-group {
+	margin-left: .6rem;
+
+	.weather-card-dot {
+		padding: 0 .5rem;
+	}
+}
+
 .weather-container {
 	display: flex;
 	justify-content: center;
