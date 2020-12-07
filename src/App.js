@@ -137,7 +137,7 @@ class App extends React.Component {
                 {this.state.errorMsg !== '' ?
                   <div className="error-message">{this.state.errorMsg}</div> : ''
                 }
-                <div className="help-text">Enter an address to see the 7 day forcast at its location.</div>
+                <div className="help-text">Enter an address to see the 7 day forecast at its location.</div>
               </div>
             </div>
 
