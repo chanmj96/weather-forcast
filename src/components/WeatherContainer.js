@@ -3,6 +3,8 @@ import Media from 'react-media';
 import { CarouselProvider, Dot, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
+const dayMap = {'Monday': 'M', 'Tuesday': 'T', 'Wednesday': 'W', 'Thursday': 'Th', 'Friday': 'F', 'Saturday': 'S', 'Sunday': 'Su'};
+
 class WeatherContainer extends React.Component {
 
 	constructor(props) {
@@ -113,8 +115,8 @@ class WeatherContainer extends React.Component {
 									<div className="weather-card-dot-group">
 										{this.state.daily.map((daily, i) => {
 											return (
-												<Dot slide={i} className="btn d-inline weather-card-dot">
-													<span aria-hidden="true">&middot;</span>
+												<Dot slide={i} key={i} className="btn d-inline weather-card-dot">
+													<span aria-hidden="true">{dayMap[this.getDayOfWeek(daily.dt)]}</span>
 												</Dot>
 											);
 										})}

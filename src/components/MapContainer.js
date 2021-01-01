@@ -23,7 +23,7 @@ function MapContainer (props) {
 									lng: props.mapLongitude
 								}
 							}
-							disableDefaultUI="true"
+							disableDefaultUI={true}
 							initialCenter={
 								{
 									lat: props.locationDefault.lat,
